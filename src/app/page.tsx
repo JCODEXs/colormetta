@@ -12,6 +12,7 @@ import {
   Logo,
   Background,
   LetterFx,
+  SparkleFx,
 } from "~/once-ui/components";
 import Link from "next/link";
 
@@ -94,13 +95,15 @@ export default function Home() {
                   </LetterFx>
                 </span>
               </Heading>
-              <Button
-                href="/pricing"
-                suffixIcon="chevronRight"
-                variant="secondary"
-              >
-                Hear how
-              </Button>
+              <SparkleFx speed="slow" count={30} trigger>
+                <Button
+                  href="/pricing"
+                  suffixIcon="chevronRight"
+                  variant="secondary"
+                >
+                  Hear how
+                </Button>
+              </SparkleFx>
             </Flex>
           </Flex>
           <Grid

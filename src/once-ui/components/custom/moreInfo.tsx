@@ -12,6 +12,7 @@ import {
   Background,
   LetterFx,
   SmartImage,
+  RevealFx,
 } from "~/once-ui/components";
 
 const MoreInfo = ({ id }) => {
@@ -158,55 +159,19 @@ const MoreInfo = ({ id }) => {
             <Text variant="body-strong-l">Detailed summary of features.</Text>
           </Flex>
           {/* MoreInfo Cards */}
-          <Grid
-            radius="l"
-            // border="neutral-medium"
-            // borderStyle="solid-1"
-            columns="repeat(1, 1fr)"
-            tabletColumns="1col"
-            mobileColumns="1col"
-            fillWidth
-            padding="8"
-            gap="12"
-          >
-            {features.map((plan, index) => (
-              <Flex
-                key={index}
-                fillWidth
-                paddingY="12"
-                gap="4"
-                direction="column"
-                radius="l"
-                border="neutral-medium"
-                borderStyle="solid-2"
-                padding="l"
-                hovereffect="scale"
-                alignItems="baseline"
-              >
-                <Flex fillWidth gap="8" alignItems="center">
-                  <Text variant="body-strong-l" onBackground="neutral-strong">
-                    {plan.title}
-                  </Text>
-                </Flex>
-
-                <Flex margin="4" gap="2">
-                  <ul>
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex}>
-                        <Text
-                          variant="body-default-s"
-                          onBackground="neutral-weak"
-                        >
-                          {feature}
-                        </Text>
-                      </li>
-                    ))}
-                  </ul>
-                </Flex>
-              </Flex>
-            ))}
-            {id == 3 &&
-              extraFeatures.map((plan, index) => (
+          <RevealFx>
+            <Grid
+              radius="l"
+              // border="neutral-medium"
+              // borderStyle="solid-1"
+              columns="repeat(1, 1fr)"
+              tabletColumns="1col"
+              mobileColumns="1col"
+              fillWidth
+              padding="8"
+              gap="12"
+            >
+              {features.map((plan, index) => (
                 <Flex
                   key={index}
                   fillWidth
@@ -242,8 +207,48 @@ const MoreInfo = ({ id }) => {
                   </Flex>
                 </Flex>
               ))}
-          </Grid>
+              {id == 3 &&
+                extraFeatures.map((plan, index) => (
+                  <Flex
+                    key={index}
+                    fillWidth
+                    paddingY="12"
+                    gap="4"
+                    direction="column"
+                    radius="l"
+                    border="neutral-medium"
+                    borderStyle="solid-2"
+                    padding="l"
+                    hovereffect="scale"
+                    alignItems="baseline"
+                  >
+                    <Flex fillWidth gap="8" alignItems="center">
+                      <Text
+                        variant="body-strong-l"
+                        onBackground="neutral-strong"
+                      >
+                        {plan.title}
+                      </Text>
+                    </Flex>
 
+                    <Flex margin="4" gap="2">
+                      <ul>
+                        {plan.features.map((feature, featureIndex) => (
+                          <li key={featureIndex}>
+                            <Text
+                              variant="body-default-s"
+                              onBackground="neutral-weak"
+                            >
+                              {feature}
+                            </Text>
+                          </li>
+                        ))}
+                      </ul>
+                    </Flex>
+                  </Flex>
+                ))}
+            </Grid>
+          </RevealFx>
           <Flex alignItems="strech" justifyContent="center">
             <Button href="/contact" variant="primary">
               Build My Website

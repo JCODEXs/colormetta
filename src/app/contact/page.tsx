@@ -6,6 +6,7 @@ import {
   LetterFx,
   Logo,
   SmartImage,
+  RevealFx,
 } from "~/once-ui/components";
 import ComposedContactForm from "~/once-ui/components/custom/composedContactForm";
 function Contact() {
@@ -76,8 +77,9 @@ function Contact() {
               </Heading>
             </Flex>
           </Flex>
-
-          <ComposedContactForm />
+          <RevealFx>
+            <ComposedContactForm />
+          </RevealFx>
         </Flex>
       </Flex>
     </Flex>

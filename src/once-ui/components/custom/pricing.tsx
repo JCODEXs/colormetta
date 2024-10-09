@@ -12,6 +12,7 @@ import {
   Background,
   LetterFx,
   SmartImage,
+  RevealFx,
 } from "~/once-ui/components";
 
 const Pricing = () => {
@@ -126,66 +127,68 @@ const Pricing = () => {
             </Text>
           </Flex>
           {/* Pricing Cards */}
-          <Grid
-            radius="l"
-            // border="neutral-medium"
-            // borderStyle="solid-1"
-            columns="repeat(3, 1fr)"
-            tabletColumns="1col"
-            mobileColumns="1col"
-            fillWidth
-            padding="8"
-            gap="12"
-          >
-            {plans.map((plan, index) => (
-              <Flex
-                key={index}
-                fillWidth
-                paddingY="12"
-                gap="4"
-                direction="column"
-                radius="l"
-                border="neutral-medium"
-                borderStyle="solid-2"
-                padding="l"
-                hovereffect="scale"
-                alignItems="baseline"
-              >
-                <Flex fillWidth gap="8" alignItems="center">
-                  <Text variant="body-strong-l" onBackground="neutral-strong">
-                    {plan.title}
+          <RevealFx speed="medium" delay={0} translateY={0}>
+            <Grid
+              radius="l"
+              // border="neutral-medium"
+              // borderStyle="solid-1"
+              columns="repeat(3, 1fr)"
+              tabletColumns="1col"
+              mobileColumns="1col"
+              fillWidth
+              padding="8"
+              gap="12"
+            >
+              {plans.map((plan, index) => (
+                <Flex
+                  key={index}
+                  fillWidth
+                  paddingY="12"
+                  gap="4"
+                  direction="column"
+                  radius="l"
+                  border="neutral-medium"
+                  borderStyle="solid-2"
+                  padding="l"
+                  hovereffect="scale"
+                  alignItems="baseline"
+                >
+                  <Flex fillWidth gap="8" alignItems="center">
+                    <Text variant="body-strong-l" onBackground="neutral-strong">
+                      {plan.title}
+                    </Text>
+                  </Flex>
+                  <Text variant="body-default-s" onBackground="neutral-weak">
+                    {plan.description}
                   </Text>
+                  <Flex margin="4" gap="2">
+                    <ul>
+                      {plan.features.map((feature, featureIndex) => (
+                        <li key={featureIndex}>
+                          <Text
+                            variant="body-default-s"
+                            onBackground="neutral-weak"
+                          >
+                            {feature}
+                          </Text>
+                        </li>
+                      ))}
+                    </ul>
+                  </Flex>
+                  <Flex justifyContent="center" margin="4" marginRight="8">
+                    <Text variant="body-strong-m" onBackground="neutral-strong">
+                      {plan.price}
+                    </Text>
+                  </Flex>
+                  <Flex alignItems="flex-end" justifyContent="center">
+                    <Button href={plan.buttonRedirectionUrl} variant="primary">
+                      {plan.buttonText}
+                    </Button>
+                  </Flex>
                 </Flex>
-                <Text variant="body-default-s" onBackground="neutral-weak">
-                  {plan.description}
-                </Text>
-                <Flex margin="4" gap="2">
-                  <ul>
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex}>
-                        <Text
-                          variant="body-default-s"
-                          onBackground="neutral-weak"
-                        >
-                          {feature}
-                        </Text>
-                      </li>
-                    ))}
-                  </ul>
-                </Flex>
-                <Flex justifyContent="center" margin="4" marginRight="8">
-                  <Text variant="body-strong-m" onBackground="neutral-strong">
-                    {plan.price}
-                  </Text>
-                </Flex>
-                <Flex alignItems="flex-end" justifyContent="center">
-                  <Button href={plan.buttonRedirectionUrl} variant="primary">
-                    {plan.buttonText}
-                  </Button>
-                </Flex>
-              </Flex>
-            ))}
-          </Grid>
+              ))}
+            </Grid>
+          </RevealFx>
         </Flex>
       </Flex>
 
